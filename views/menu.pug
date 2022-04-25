@@ -1,0 +1,72 @@
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="preconnect", href="https://fonts.googleapis.com")
+        link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+        link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap")
+        link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css")
+        link(rel="stylesheet", href="/css/styles.css")
+        link(rel="stylesheet", href="/css/table-styles.css")
+        link(rel="stylesheet", href="/css/form-styles.css")
+        title ABM VENTAS
+    body
+        nav
+            ul
+                li 
+                    a.nav-title(href="/") ABM VENTAS 
+                li.profile-links-container
+                    .profile-img-container
+                        img(src=`../uploads/${user.foto}`, alt="")
+                        p= user.usuario
+                    a.collapse(data-target="#profile")
+                        i.bi.bi-person-fill
+                        i.bi.bi-caret-down-fill
+                    div.collapsed.profile-links-collapse#profile
+                        a(href="/ajustes") Ajustes
+                        a(href="/salir") Salir
+                li.hamburguer-button-container
+                    i.bi.bi-list
+
+        aside
+            ul
+                li
+                    a(href="/index")
+                hr
+                li
+                    a.collapse(data-target="#clientes") Clientes
+                        div 
+                            i.bi.bi-caret-right-fill.arrow  
+                div.collapsed#clientes
+                    a(href="/cliente-listado") Listado 
+                    a(href="/cliente-formulario") Nuevo 
+                li
+                    a.collapse(data-target="#productos") Productos 
+                        div
+                            i.bi.bi-caret-right-fill.arrow
+                div.collapsed#productos
+                    a(href="/producto-listado") Listado 
+                    a(href="/producto-formulario") Nuevo 
+                li
+                    a.collapse(data-target="#ventas") Ventas 
+                        div
+                            i.bi.bi-caret-right-fill.arrow
+                div.collapsed#ventas
+                    a(href="/venta-listado") Listado
+                    a(href="/venta-formulario") Nuevo
+                li 
+                    a.collapse(data-target="#estadisticas") Estadisticas 
+                        div
+                            i.bi.bi-caret-right-fill.arrow
+                div.collapsed#estadisticas
+                    a(href="/estadisticas-clientes") Clientes 
+                    a(href="/estadisticas-productos") Productos 
+                    a(href="/estadisticas-ventas") Ventas 
+                li 
+                    a(href="/perfil") Mi Perfil
+       
+
+

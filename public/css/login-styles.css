@@ -1,0 +1,113 @@
+
+body{
+    color: white;
+    background-color: var(--bg-nav-color)
+}
+
+.relogin-container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 3rem;
+    padding-top: 3rem;
+}
+
+.relogin-container div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.relogin-container div img{
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+}
+
+.login-container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 5rem;
+    padding-top: 5rem;
+}
+
+.login-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.login-form div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.login-form div label{
+align-self: flex-start;
+}
+
+.submit{
+    padding: 0.5rem;
+    background-color: white;
+    color: var(--bg-nav-color);
+    border: none;
+    border-radius: 0.2rem;
+    cursor: pointer;
+}
+
+.submit:hover{
+    background-color: white;
+}
+
+.input-container{
+    position: relative;
+}
+
+input{
+    height: 1.5rem;
+    outline: none;
+}
+
+.warning-icon{
+    position: absolute;
+    right: 0.2rem;
+    bottom: 0.1rem;
+    display: none;
+    
+}
+
+.warning{
+    color: hsl(0, 100%, 74%);
+    position: absolute;
+    font-size: 0.8rem;
+    top: 1.5rem;
+    left: 0;
+    display: none;
+    
+}
+
+.actived{
+    display: flex;
+}
+
+.submit-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+

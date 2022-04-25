@@ -1,0 +1,75 @@
+include menu
+main.form-main
+    div.form-header
+        h1 Registra Una Nueva Venta 
+        a(href="/venta-listado") Listado de Ventas 
+
+    div
+        h2 Productos 
+        div.table-container.tabla-producto
+            table
+                thead 
+                    tr 
+                        th Id 
+                        th Nombre 
+                        th Descripcion 
+                        th Stock 
+                        th Precio 
+                        th Foto 
+                        th 
+                tbody
+                    each producto in data
+                        tr
+                            td= producto.producto_id
+                            td= producto.nombre 
+                            td= producto.descripcion 
+                            td.stock= producto.stock 
+                            td= `$${producto.precio}`
+                            td
+                                img.product-img(src=`../uploads/${producto.foto}`, alt="")    
+                            td.table-icon-container 
+                                a.agregar-carrito(href="", data-id=`${producto.producto_id}`, data-nombre=`${producto.nombre}`, data-precio=`${producto.precio}`, data-imagen=`${producto.foto}`, data-stock=`${producto.stock}`) 
+                                    i.bi.bi-plus-circle-fill 
+    div.venta-container
+        h1 Venta 
+        div.venta-controles
+            select#descuento(name="descuento")
+                option(value="0", selected) Descuento
+                option(value="0") 0%
+                option(value="5") 5%
+                option(value="10") 10%
+                option(value="15") 15%
+                option(value="20") 20%
+                option(value="25") 25%
+                option(value="50") 50%
+                option(value="60") 60%
+                option(value="75") 75%
+                option(value="100") 100% 
+            select#vendedor(name="vendedor")
+                option(value="Desconocido") Vendedor 
+                option(value="Desconocido") Desconocido
+                option(value="Pablo") Pablo 
+                option(value="Marcos") Marcos 
+                option(value="Martin") Martin    
+            select#cliente(name="cliente")
+                option(value="Desconocido") Cliente 
+                option(value="Desconocido") Desconocido 
+            input(type="date", name="fecha", id="fecha")
+        div.table-container.tabla-ventas
+            table
+                thead 
+                    th Id 
+                    th Producto 
+                    th Foto 
+                    th Precio 
+                    th 
+                tbody 
+        h2 Total: $0
+        div.submit-venta-container
+            form(action="")
+                input.secreto(type="text", hidden)
+                input.submit-venta(type="submit", value="Registrar Venta")
+
+script(src="/js/main.js")
+script(src="/js/ventas.js")
+script(src="/js/clientes.js")            

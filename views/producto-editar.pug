@@ -1,0 +1,35 @@
+include menu
+main.form-main
+    .form-header
+        h1 Registra Un Nuevo Producto
+        a(href="/producto-listado") Listado De Productos
+
+    form.form(action=`actualizar/${data.producto_id}`, method="POST", enctype="multipart/form-data" )
+        .inputs-container
+            div
+                label(for="") Id:
+                input(type="text", name="producto_id", placeholder="Id..." value=`${data.producto_id}` disabled, required)
+                                //- cuando desactivas un input este no va por el formulario, entonces tenemos que crear un input hidden para sustituirlo
+                input(type="hidden", name="producto_id", value=`${data.producto_id}`, required)
+            div
+                label(for="") Nombre:
+                input(type="text", name="nombre", placeholder="Nombre..." value=`${data.nombre}`)
+            div
+                label(for="") Descripcion:
+                input(type="text", name="descripcion", placeholder="Descripcion..." value=`${data.descripcion}`)
+            div 
+                label(for="") Precio: 
+                input(type="text", name="precio", placeholder="Precio..." value=`${data.precio}`)
+            div
+                label(for="") Stock: 
+                input(type="text", name="stock", placeholder="Stock..." value=`${data.stock}`)
+            div
+                label(for="") Foto:
+                input(type="file", name="archivo", placeholder="Foto...", accept=".jpg, .jpeg, .png")
+                img(src=`../uploads/${data.foto}`, alt="")
+                input(type="text", name="fotoActual", value=`${data.foto}`, hidden )
+        div
+            input.submit(type="submit", value="Actualizar")
+            
+            
+script(src="/js/main.js")  

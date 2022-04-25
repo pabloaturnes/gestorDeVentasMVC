@@ -1,0 +1,41 @@
+include menu
+main.form-main
+    .form-header
+        h1 Registra Un Nuevo Cliente
+        a(href="/cliente-listado") Listado De Clientes
+
+    form.form(action=`actualizar/${data.cliente_id}`, method="POST")
+        .inputs-container
+            div
+                label(for="") Id:
+                input(type="text", name="cliente_id", placeholder="Id...", value=`${data.cliente_id}` disabled, required)
+                //- cuando desactivas un input este no va por el formulario, entonces tenemos que crear un input hidden para sustituirlo
+                input(type="hidden", name="cliente_id", value=`${data.cliente_id}`, required)
+            div
+                label(for="") Nombre:
+                input(type="text", name="nombre", placeholder="Nombre..." value=`${data.nombre}`, required)
+            div
+                label(for="") Apellido:
+                input(type="text", name="apellido", placeholder="Apellido..." value=`${data.apellido}`, required)
+            div 
+                label(for="") DNI: 
+                input(type="text", name="dni", placeholder="DNI..." value=`${data.dni}`, required)
+            div
+                label(for="") Telefono: 
+                input(type="text", name="telefono", placeholder="Telefono..." value=`${data.telefono}`, required)
+            div
+                label(for="") E-Mail:
+                input(type="text", name="email", placeholder="E-Mail..." value=`${data.email}`, required)
+            div 
+                label(for="") Direccion: 
+                input(type="text", name="direccion", placeholder="Direccion..." value=`${data.direccion}`, required)
+            div 
+                label(for="") Provincia 
+                select.provincia(name="provincia", placeholder="Provincia...", required) 
+                    option(value=`${data.provincia}`)=data.provincia 
+        div
+            input.submit(type="submit", value="Actualizar")
+            input(type="hidden", name="_method", value="PUT") 
+
+script(src="/js/provincias.js")  
+script(src="/js/main.js")  

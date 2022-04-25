@@ -1,0 +1,49 @@
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="preconnect", href="https://fonts.googleapis.com")
+        link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+        link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap")
+        link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css")
+        link(rel="stylesheet", href="/css/styles.css")
+        link(rel="stylesheet", href="/css/table-styles.css")
+        link(rel="stylesheet", href="/css/form-styles.css")
+        link(rel="stylesheet", href="/css/login-styles.css")
+        title Login
+    
+        
+    -if(user)
+        body.relogin-container
+            h2 Te encuentras logueado con el siguiente usuario:
+            div 
+                img(src=`../uploads/${user.foto}`, alt="")
+                p= user.usuario
+            div
+                a(href="/salir") Cambiar de Usuario
+                a(href="/")  Regresar al inicio
+    -else
+        body.login-container
+            h1 Bienvenido al Sistema de Gestion de Ventas
+            form(action="/login", method="post")
+                div.login-form
+                    div.register-form-container 
+                        label(for="") Usuario:
+                        div.input-container
+                            input(type="text", name="usuario", id="usuario", placeholder="Usuario")
+                            img.warning-icon(src="../images/icon-error.svg" alt="")
+                            p.warning
+                    div.register-form-container 
+                        label(for="") Contraseña:
+                        div.input-container
+                            input(type="password", name="contrasenia", id="contrasenia", placeholder="contraseña")
+                            img.warning-icon(src="../images/icon-error.svg" alt="")
+                            p.warning
+                    div.submit-div
+                        input.submit(type="submit", value="Ingresar")
+                    a(href="/registrar") ¿Aun no tenes un usuario y contraseña? 
+
+script(src="/js/validar-formulario-login.js") 

@@ -1,0 +1,70 @@
+include menu
+main
+    .header-form
+        h1 Listado de Clientes
+        form.search(action="/cliente-listado/search=")
+            input.find-input(type="text", placeholder="Buscar...") 
+            input.find-input-button(type="submit", value="Buscar")
+    if data
+        .table-container
+            table
+                thead
+                    tr
+                        th Id 
+                        th Nombre 
+                        th Apellido 
+                        th DNI 
+                        th Telefono
+                        th Mail
+                        th Direccion
+                        th Provincia
+                        th
+                tbody
+                    each cliente in data
+                        tr
+                            td= cliente.cliente_id.toUpperCase()
+                            td= cliente.nombre.toUpperCase()
+                            td= cliente.apellido.toUpperCase()
+                            td= cliente.dni
+                            td= cliente.telefono
+                            td= cliente.email.toUpperCase()
+                            td= cliente.direccion.toUpperCase()
+                            td= cliente.provincia.toUpperCase()
+                            td.table-icon-container
+                                form(method="GET", action=`/cliente-editar/${cliente.cliente_id}`)
+                                    button(type="submit")
+                                        i.bi.bi-pencil-square.edit  
+                                form(method="POST", action=`/eliminar/cliente/${cliente.cliente_id}`, onsubmit="return eliminar()")
+                                    button(type="submit")
+                                        i.bi.bi-trash.delete
+                                    input(type="hidden", name="_method", value="DELETE")
+
+    -if(pagination)
+        a(href="/cliente-listado") Volver al inicio del listado
+    -else
+        .paginador
+            -if(previousPage == "")
+                a.previous() Previous
+            -else 
+                a.previous(href=`${previousPage}`) Previous
+                a.page(href=`${previousPage}`)= `${actualPage-1}`
+            a.page.page-active()= actualPage
+            -if(nextPage == "")
+                a.next() Next
+            -else
+                a.page(href=`${nextPage}`)= `${actualPage+1}`
+                a.next(href=`${nextPage}`) Next                                      
+script.
+    function eliminar()
+    {
+        const deleteOk = confirm("¿Estas seguro de eliminar la pelicula?")
+        if(deleteOk){
+            return true
+        }else{
+            return false
+        }
+    }
+script(src="/js/main.js")
+script(src="/js/busqueda.js")      
+
+

@@ -1,0 +1,37 @@
+include menu
+main.form-main
+    .form-header
+        h1 Registra Un Nuevo Cliente
+        a(href="/cliente-listado") Listado De Clientes
+
+    form.form(action="", method="post")
+        .inputs-container
+            div
+                label(for="") Id:
+                input(type="text", name="cliente_id", placeholder="Id...")
+            div
+                label(for="") Nombre:
+                input(type="text", name="nombre", placeholder="Nombre...")
+            div
+                label(for="") Apellido:
+                input(type="text", name="apellido", placeholder="Apellido...")
+            div 
+                label(for="") DNI: 
+                input(type="text", name="dni", placeholder="DNI...")
+            div
+                label(for="") Telefono: 
+                input(type="text", name="telefono", placeholder="Telefono...")
+            div
+                label(for="") E-Mail:
+                input(type="text", name="email", placeholder="E-Mail...")
+            div 
+                label(for="") Direccion: 
+                input(type="text", name="direccion", placeholder="Direccion...")
+            div 
+                label(for="") Provincia 
+                select.provincia(name="provincia", placeholder="Provincia...") 
+                    option(value="") SELECCIONAR 
+        div
+            input.submit(type="submit", value="Guardar")
+script(src="/js/provincias.js")  
+script(src="/js/main.js")  

@@ -1,0 +1,63 @@
+include menu 
+main
+    .header-form
+        h1 Listado de Ventas
+        form.search(action="/venta-listado/search=")
+            input.find-input(type="text", placeholder="Buscar...") 
+            input.find-input-button(type="submit", value="Buscar")
+    if data
+        .table-container
+                table
+                    thead
+                        tr
+                            th Id
+                            th Productos 
+                            th Fecha 
+                            th Cliente
+                            th Vendedor 
+                            th Descuento
+                            th Total
+                            th
+                    tbody
+                        each venta in data
+                            tr
+                                td= venta._id
+                                td= venta.idProductosVendidos
+                                td= venta.fecha.toLocaleDateString()
+                                td= venta.cliente
+                                td= venta.vendedor
+                                td= `${venta.descuento}%`
+                                td= `$${venta.total}`
+                                td.table-icon-container
+                                    form(method="POST", action=`/eliminar/venta/${venta._id}`, onsubmit="return eliminar()")
+                                        button(type="submit")
+                                            i.bi.bi-trash.delete
+                                        input(type="hidden", name="_method", value="DELETE")
+
+    -if(pagination)
+        a(href="/venta-listado") Volver al inicio del listado
+    -else
+        .paginador
+            -if(previousPage == "")
+                a.previous() Previous
+            -else 
+                a.previous(href=`${previousPage}`) Previous
+                a.page(href=`${previousPage}`)= `${actualPage-1}`
+            a.page.page-active()= actualPage
+            -if(nextPage == "")
+                a.next() Next
+            -else
+                a.page(href=`${nextPage}`)= `${actualPage+1}`
+                a.next(href=`${nextPage}`) Next                                        
+script.
+    function eliminar()
+    {
+        const deleteOk = confirm("¿Estas seguro de eliminar el producto?")
+        if(deleteOk){
+            return true
+        }else{
+            return false
+        }
+    }
+script(src="/js/main.js")
+script(src="/js/busqueda.js")    

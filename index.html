@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABM Ventas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a class="nav-title" href="/index.html">ABM VENTAS</a>
+            </li>
+            <li class="profile-links-container">
+                <a class="collapse"  data-target="#profile">
+                    <i class="bi bi-person-fill"></i>
+                    <i class="bi bi-caret-down-fill"></i>
+                </a>
+                <div class="collapsed profile-links-collapse" id="profile">
+                    <a href="/ajustes.html">Ajustes</a>
+                    <a href="/salir">Salir</a>
+                </div>
+            </li>
+            <li class="hamburguer-button-container">
+                <i class="bi bi-list"></i>
+            </li>
+
+        </ul>
+    </nav>
+
+    <aside>
+        <ul>
+            <li>
+                <a href="/index.html"></a>
+            </li>
+            <hr>
+            <li>
+                <a class="collapse"  data-target="#clientes">
+                    Clientes
+                    <div><i class="bi bi-caret-right-fill arrow"></i></div>
+                </a>
+            </li>
+            <div class="collapsed" id="clientes">
+                <a href="/cliente-listado.html">Listado</a>
+                <a href="/cliente-nuevo.html">Nuevo</a>
+                <a href="/cliente-editar.html">Editar</a>
+            </div>
+            <li>
+                <a class="collapse" data-target="#productos">
+                    Productos
+                    <div>
+                        <i class="bi bi-caret-right-fill arrow"></i>
+                    </div>
+                </a>
+            </li>
+            <div class="collapsed" id="productos">
+                <a href="/productos-listado.html">Listado</a>
+                <a href="/productos-nuevo.html">Nuevo</a>
+                <a href="/productos-editar.html">Editar</a>
+            </div>
+            <li>
+                <a class="collapse" data-target="#ventas">
+                    Ventas
+                    <div>
+                        <i class="bi bi-caret-right-fill arrow"></i>
+                    </div>
+                </a>
+                
+            </li>
+            <div class="collapsed" id="ventas">
+                <a href="/ventas-listado.html">Listado</a>
+                <a href="/ventas-nuevo.html">Nuevo</a>
+                <a href="/ventas-editar.html">Editar</a>
+            </div>
+            <li>
+                <a class="collapse" data-target="#estadisticas">
+                    Estadisticas
+                    <div>
+                        <i class="bi bi-caret-right-fill arrow"></i>
+                    </div>
+                </a>
+            </li>
+            <div class="collapsed" id="estadisticas">
+                <a href="/estadisticas-clientes.html">Clientes</a>
+                <a href="/estadisticas-productos.html">Productos</a>
+                <a href="/estadisticas-ventas.html">Ventas</a>
+            </div>
+            <li>
+                <a href="/perfil.html">Mi perfil</a>
+            </li>
+        </ul>
+    </aside>
+
+    <main>
+        <h1>Este es el Main del index</h1>
+    </main>
+
+
+<script src="main.js"></script>
+</body>
+</html>

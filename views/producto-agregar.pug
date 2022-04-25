@@ -1,0 +1,28 @@
+include menu
+main.form-main
+    .form-header
+        h1 Registra Un Nuevo Producto
+        a(href="/producto-listado") Listado De Productos
+
+    form.form(action="", method="post", enctype="multipart/form-data")
+        .inputs-container
+            div
+                label(for="") Id:
+                input(type="text", name="producto_id", placeholder="Id...")
+            div
+                label(for="") Nombre:
+                input(type="text", name="nombre", placeholder="Nombre...")
+            div
+                label(for="") Descripcion:
+                input(type="text", name="descripcion", placeholder="Descripcion...")
+            div 
+                label(for="") Precio: 
+                input(type="text", name="precio", placeholder="Precio...")
+            div
+                label(for="") Stock: 
+                input(type="text", name="stock", placeholder="Stock...")
+            label(for="") Foto:
+            input(type="file", name="archivo", accept=".jpg, .jpeg, .png", placeholder="archivo...")
+        div
+            input.submit(type="submit", value="Guardar")
+script(src="/js/main.js")  

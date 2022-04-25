@@ -1,0 +1,67 @@
+include menu 
+main
+    .header-form
+        h1 Listado de Productos
+        form.search(action="/producto-listado/search=")
+            input.find-input(type="text", placeholder="Buscar...") 
+            input.find-input-button(type="submit", value="Buscar")
+        
+    if data
+        .table-container
+                table
+                    thead
+                        tr
+                            th Id 
+                            th Nombre 
+                            th Descripcion
+                            th Stock 
+                            th Precio
+                            th Foto
+                            th
+                    tbody
+                        each producto in data
+                            tr
+                                td= producto.producto_id
+                                td= producto.nombre
+                                td= producto.descripcion
+                                td= producto.stock
+                                td= `$${producto.precio}`
+                                td 
+                                    img.product-img(src=`../uploads/${producto.foto}`, alt="")
+                                td.table-icon-container
+                                    form(method="GET", action=`/producto-editar/${producto.producto_id}`)
+                                        button(type="submit")
+                                            i.bi.bi-pencil-square.edit  
+                                    form(method="POST", action=`/eliminar/producto/${producto.producto_id}`, onsubmit="return eliminar()")
+                                        button(type="submit")
+                                            i.bi.bi-trash.delete
+                                        input(type="hidden", name="_method", value="DELETE")
+
+    -if(pagination)
+        a(href="/producto-listado") Volver al inicio del listado
+    -else
+        .paginador
+            -if(previousPage == "")
+                a.previous() Previous
+            -else 
+                a.previous(href=`${previousPage}`) Previous
+                a.page(href=`${previousPage}`)= `${actualPage-1}`
+            a.page.page-active()= actualPage
+            -if(nextPage == "")
+                a.next() Next
+            -else
+                a.page(href=`${nextPage}`)= `${actualPage+1}`
+                a.next(href=`${nextPage}`) Next
+                                               
+script.
+    function eliminar()
+    {
+        const deleteOk = confirm("¿Estas seguro de eliminar el producto?")
+        if(deleteOk){
+            return true
+        }else{
+            return false
+        }
+    }
+script(src="/js/main.js")
+script(src="/js/busqueda.js")    

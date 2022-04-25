@@ -1,0 +1,67 @@
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="preconnect", href="https://fonts.googleapis.com")
+        link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+        link(rel="stylesheet", href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap")
+        link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css")
+        link(rel="stylesheet", href="/css/register-styles.css")
+        title Registrar
+    body.register-container
+        h1 Registra Tu Nuevo Usuario
+        form(action="/registrar", method="post",  enctype="multipart/form-data", id="formularioRegistro")
+            div.register-form
+                div.register-form-container 
+                    label(for="usuario") Usuario:
+                    div.input-container
+                        input(type="text", name="usuario", placeholder="Usuario", id="usuario")
+                        img.warning-icon(src="../images/icon-error.svg" alt="")
+                        p.warning no anduvo la accion
+                div.register-form-container 
+                    label(for="") Contraseña:
+                    div.input-container
+                        input(type="password", name="contrasenia", placeholder="Contraseña", id="contrasenia")
+                        img.warning-icon(src="../images/icon-error.svg" alt="")
+                        p.warning
+                div.register-form-container 
+                    label(for="") Repite tu contraseña
+                    div.input-container
+                        input(type="password", name="contrasenia2", placeholder="Contraseña", id="contrasenia2")
+                        img.warning-icon(src="../images/icon-error.svg" alt="")
+                        p.warning
+                div.register-form-container 
+                    label(for="") Email:
+                    div.input-container
+                        input(type="text", name="email", placeholder="Email", id="email")
+                        img.warning-icon(src="../images/icon-error.svg" alt="")
+                        p.warning
+                div.register-form-container 
+                    label(for="") Repite Tu Email:
+                    div.input-container
+                        input(type="text", name="email2", placeholder="Email", id="email2")
+                        img.warning-icon(src="../images/icon-error.svg" alt="")
+                        p.warning
+                div.register-form-container 
+                    label(for="") Pregunta Secreta:
+                    div.input-container
+                        input(type="text", name="preguntaSecreta", placeholder="Pregunta Secreta", id="pregSecreta")
+                        img.warning-icon(src="../images/icon-error.svg" alt="")
+                        p.warning
+                div.register-form-container 
+                    label(for="") Respuesta:
+                    div.input-container
+                        input(type="text", name="respuestaSecreta", placeholder="Respuesta", id="respuesta")
+                        img.warning-icon(src="../images/icon-error.svg" alt="")
+                        p.warning
+                div.file-div
+                    label(for="") Foto De Perfil:
+                    input(type="file", name="foto", accept=".jpg, .jpeg, .png", placeholder="archivo...", id="foto")           
+            div.submit-div 
+                input.submit(type="submit", value="Registrar")
+
+script(src="/js/validar-formulario-registro.js") 
+
