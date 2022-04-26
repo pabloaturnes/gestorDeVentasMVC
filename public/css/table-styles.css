@@ -17,6 +17,10 @@
     
 }
 
+.producto-container {
+    width: 40rem;
+}
+
 .venta-container{
     margin-top: 2rem;
 }
@@ -47,6 +51,7 @@
     justify-content: center;
     gap: 1rem;
     margin-top: 1rem;
+    flex-wrap: wrap;
 }
 
 .venta-controles select, .venta-controles input{
@@ -224,6 +229,17 @@ table {
     .header-form{
       gap: 1rem;
       justify-content: center;
+    }
+
+}
+
+@media (max-width: 600px){
+
+    .registrar-form{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem 0 2rem 0;
     }
 
 }

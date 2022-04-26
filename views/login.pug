@@ -22,7 +22,7 @@ html(lang="en")
             div 
                 img(src=`../uploads/${user.foto}`, alt="")
                 p= user.usuario
-            div
+            div.relogin-options
                 a(href="/salir") Cambiar de Usuario
                 a(href="/")  Regresar al inicio
     -else
