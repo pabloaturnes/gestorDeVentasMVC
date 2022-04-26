@@ -16,3 +16,6 @@
 3. Instala las dependencias introduciendo el comando "npm install" en la consola.
 4. Inicia el servidor introduciendo el comando "npm start" en la consola.
 5. Ahora la aplicación estara disponible en la direccion http://localhost:3000/ o http://localhost:3000/login
+
+
+## Autor: Pablo Turnes
